@@ -1,10 +1,17 @@
+
 from tulane_events.tulane_scraper import TulaneEventScraper
 from tulane_events.campus_scraper import CampusEventScraper
+from tulane_events.tulane_comesto_u import TulaneComesToYouScraper
 
 if __name__ == "__main__":
-    # Example: run TulaneEventScraper
+    # Run TulaneEventScraper
     scraper = TulaneEventScraper()
     scraper.run()
-    # To run CampusEventScraper, uncomment below:
+
+    # Run CampusEventScraper
     scraper1 = CampusEventScraper()
     scraper1.run()
+
+    # Run TulaneComesToYouScraper
+    scraper2 = TulaneComesToYouScraper()
+    scraper2.run()

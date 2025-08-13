@@ -17,38 +17,33 @@ class TulaneEventScraper:
         options.add_argument("--start-maximized")
         return webdriver.Chrome(options=options)
 
-    def scroll_to_bottom(self):
-        print("📜 Scrolling to trigger lazy loading...")
-        last_height = self.driver.execute_script("return document.body.scrollHeight")
-        scroll_attempts = 0
-        while True:
-            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(1)
-            new_height = self.driver.execute_script("return document.body.scrollHeight")
-            if new_height == last_height:
-                scroll_attempts += 1
-                if scroll_attempts >= 3:
-                    print("✅ Scrolling complete.")
-                    break
-            else:
-                scroll_attempts = 0
-                last_height = new_height
+    def load_all_events(self):
+        print("📜 Scrolling to load all events...")
+        last_event_count = 0
+        same_count_repeats = 0
 
-    def click_load_more(self):
-        print("⏬ Clicking 'Load More' button...")
         while True:
-            try:
-                load_more_btn = self.driver.find_element(By.CSS_SELECTOR, "a.load-more")
-                if load_more_btn.is_displayed():
-                    self.driver.execute_script("arguments[0].scrollIntoView(true);", load_more_btn)
-                    time.sleep(0.5)
-                    load_more_btn.click()
-                    time.sleep(1.5)
-                else:
-                    break
-            except Exception:
+            # Scroll to bottom
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)  # Wait for new events to load
+
+            # Count events loaded so far
+            soup = BeautifulSoup(self.driver.page_source, "html.parser")
+            events = soup.find_all("li", class_="views-row")
+            current_event_count = len(events)
+            print(f"Found {current_event_count} events so far...")
+
+            # If new events loaded, reset repeat counter
+            if current_event_count > last_event_count:
+                last_event_count = current_event_count
+                same_count_repeats = 0
+            else:
+                same_count_repeats += 1
+
+            # Stop after 3 scrolls with no change
+            if same_count_repeats >= 3:
+                print("✅ All events loaded.")
                 break
-        print("✅ All events loaded via 'Load More'.")
 
     def extract_event_data(self, event):
         title_tag = event.find("a", href=True)
@@ -131,8 +126,7 @@ class TulaneEventScraper:
         try:
             self.driver.get(self.base_url)
             print("🌐 Page loaded.")
-            self.scroll_to_bottom()     # optional but helps lazy load
-            self.click_load_more()      # important for full event list
+            self.load_all_events()
             self.parse_events()
             self.save_to_csv()
             self.save_to_txt()
@@ -141,3 +135,5 @@ class TulaneEventScraper:
         finally:
             self.driver.quit()
             print("✅ Browser closed.")
+
+

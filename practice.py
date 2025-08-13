@@ -1,73 +1,77 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-from bs4.element import NavigableString
+import time
+import csv
 
-html = '''
-<li class="views-row">
-  <div class="views-field views-field-title">
-    <span class="field-content">
-      <div class="grid grid-cols-1 md:grid-cols-12">
-        <div class="col-span-2 bg-tu-green-official text-white text-center first">
-          <div class="card-month">Aug - Oct</div>
-          <div class="card-date">4 - 10</div>
-          <div class="card-day">Mon - Fri</div>
-        </div>
-        <div class="col-span-7 second p-10">
-          <span class="field-title">
-            <a href="/content/rodgers-hammersteins-carousel-2" hreflang="en">
-              Rodgers & Hammerstein's CAROUSEL
-            </a>
-          </span>
-          <br><br>
-          <strong>
-            <span class="smart-date--date">
-              <time datetime="2025-08-02T19:30:00-05:00">Sat, Aug 2 2025</time>
-            </span>
-            ,
-            <span class="smart-date--time">
-              <time datetime="2025-08-02T19:30:00-05:00">7:30</time>
-              -
-              <time datetime="2025-08-02T23:00:00-05:00">11pm</time>
-            </span>
-          </strong>
-          <br><br>
-          Dixon Hall
-        </div>
-        <div class="col-span-3 third flex">
-          <a href="/content/rodgers-hammersteins-carousel-2" hreflang="en">
-            <img loading="lazy" src="/sites/default/files/styles/scale and crop/public/events/carousel.jpg" alt="Event Image">
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</li>'''  # (insert the full HTML string here)
+# Setup Chrome without logs
+chrome_options = Options()
+chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+driver = webdriver.Chrome(options=chrome_options)
 
-soup = BeautifulSoup(html, 'html.parser')
+driver.get("https://apply.tulane.edu/portal/tulanecomestoyou")
 
-# Step 1: Find the container div that holds the event info
-event_div = soup.find('div', class_='col-span-7 second p-10')
+# Click "Browse All"
+browse_btn = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//button[text()='Browse All']"))
+)
+browse_btn.click()
 
-# Step 2: Get all contents (including text) of this div
-contents = event_div.contents
+# Scroll to load all events
+last_height = driver.execute_script("return document.body.scrollHeight")
+while True:
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(2)
+    new_height = driver.execute_script("return document.body.scrollHeight")
+    if new_height == last_height:
+        break
+    last_height = new_height
 
-# Step 3: After the <strong> tag, look for the next NavigableString (plain text)
-venue = None
-found_strong = False
+# Parse HTML
+soup = BeautifulSoup(driver.page_source, "html.parser")
+driver.quit()
 
-for item in contents:
-    if item.name == 'strong':
-        found_strong = True
-    elif found_strong and isinstance(item, NavigableString):
-        text = item.strip()
-        if text:
-            venue = text
-            break
+container = soup.find("div", class_="event_list_display")
 
-print("Venue:", venue)
-month = soup.find(class_="card-month").get_text(strip=True)
-date = soup.find(class_="card-date").get_text(strip=True)
-day = soup.find(class_="card-day").get_text(strip=True)
+data = []
+current_state = None
 
-print("Month:", month)
-print("Date:", date)
-print("Day:", day)
+# Loop through in order
+
+for div in container.find_all("div", recursive=True):
+    classes = div.get("class", [])
+    if "item_header" in classes:
+        current_state = div.get_text(strip=True)
+    elif "item" in classes:
+        event_div = div.find("div", class_="event")
+        if event_div:
+            date_time = event_div.get("data-date")
+            location = event_div.get("data-location")
+            title_tag = event_div.find("a")
+            title = title_tag.get_text(strip=True) if title_tag else None
+            link = title_tag["href"] if title_tag else None
+
+            # Split date and time
+            date_part, time_part = None, None
+            if date_time:
+                if "T" in date_time:
+                    date_part, time_part = date_time.split("T", 1)
+                else:
+                    date_part = date_time
+
+            # Extract only the state name (before the first ' - ')
+            state_name = current_state.split(' - ')[-1] if current_state and ' - ' in current_state else current_state
+            data.append([state_name, title, date_part, time_part, location, link])
+
+# Save to CSV
+
+csv_filename = "tulaneComestoYou.csv"
+with open(csv_filename, mode="w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["State", "Title", "Date", "Time", "Location", "Link"])
+    writer.writerows(data)
+
+print(f"✅ Saved {len(data)} events to {csv_filename}")
