@@ -1,77 +1,98 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
 import time
-import csv
+import pandas as pd
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from selenium import webdriver
 
-# Setup Chrome without logs
-chrome_options = Options()
-chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome(options=chrome_options)
+# Mapping of URLs to categories
+CATEGORY_MAP = {
+    "tulane.campuslabs.com/engage/events": "Student-life / Clubs / Social Mixers",
+    "events.tulane.edu": "University-wide (Academic, Cultural, Wellness, etc.)",
+    "apply.tulane.edu/portal/tulanecomestoyou": "Admissions / Info Sessions",
+    "freeman.tulane.edu/events": "Academic & Professional Development",
+    "medicine.tulane.edu/events-calendar": "Medical Academic & Professional",
+    "tmedweb.tulane.edu/clubs": "Medical Student Clubs / Org Events",
+    "campusrecreation.tulane.edu/event-listings": "Fitness, Wellness & Recreation"
+}
 
-driver.get("https://apply.tulane.edu/portal/tulanecomestoyou")
+class GenericEventScraper:
+    def __init__(self, urls):
+        self.urls = urls
+        self.driver = self._init_driver()
+        self.results = []
 
-# Click "Browse All"
-browse_btn = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "//button[text()='Browse All']"))
-)
-browse_btn.click()
+    def _init_driver(self):
+        options = webdriver.ChromeOptions()
+        options.add_argument("--start-maximized")
+        return webdriver.Chrome(options=options)
 
-# Scroll to load all events
-last_height = driver.execute_script("return document.body.scrollHeight")
-while True:
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
-    new_height = driver.execute_script("return document.body.scrollHeight")
-    if new_height == last_height:
-        break
-    last_height = new_height
+    def scrape_site(self, url):
+        print(f"🌐 Scraping {url}")
+        self.driver.get(url)
+        time.sleep(2)
 
-# Parse HTML
-soup = BeautifulSoup(driver.page_source, "html.parser")
-driver.quit()
+        # Infinite scroll until stable
+        last_height = 0
+        same_count = 0
+        while True:
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)
+            new_height = self.driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                same_count += 1
+                if same_count >= 2:
+                    break
+            else:
+                same_count = 0
+            last_height = new_height
 
-container = soup.find("div", class_="event_list_display")
+        soup = BeautifulSoup(self.driver.page_source, "html.parser")
+        events = soup.find_all("li", class_="views-row")  # may vary per site
 
-data = []
-current_state = None
+        category = self.get_category(url)
+        for e in events:
+            title_tag = e.find("a", href=True)
+            title = title_tag.get_text(strip=True) if title_tag else "No Title"
+            link = urljoin(url, title_tag['href']) if title_tag else None
+            self.results.append({
+                "Source": url,
+                "Category": category,
+                "Title": title,
+                "Link": link
+            })
 
-# Loop through in order
+        print(f"✅ {len(events)} events found from {url}")
 
-for div in container.find_all("div", recursive=True):
-    classes = div.get("class", [])
-    if "item_header" in classes:
-        current_state = div.get_text(strip=True)
-    elif "item" in classes:
-        event_div = div.find("div", class_="event")
-        if event_div:
-            date_time = event_div.get("data-date")
-            location = event_div.get("data-location")
-            title_tag = event_div.find("a")
-            title = title_tag.get_text(strip=True) if title_tag else None
-            link = title_tag["href"] if title_tag else None
+    def get_category(self, url):
+        for key, cat in CATEGORY_MAP.items():
+            if key in url:
+                return cat
+        return "Uncategorized"
 
-            # Split date and time
-            date_part, time_part = None, None
-            if date_time:
-                if "T" in date_time:
-                    date_part, time_part = date_time.split("T", 1)
-                else:
-                    date_part = date_time
+    def run(self):
+        try:
+            for url in self.urls:
+                self.scrape_site(url)
+        finally:
+            self.driver.quit()
 
-            # Extract only the state name (before the first ' - ')
-            state_name = current_state.split(' - ')[-1] if current_state and ' - ' in current_state else current_state
-            data.append([state_name, title, date_part, time_part, location, link])
+    def save_results(self, filename="scraping_results.csv"):
+        df = pd.DataFrame(self.results)
+        df.to_csv(filename, index=False)
+        print(f"💾 Results saved to {filename}")
 
-# Save to CSV
 
-csv_filename = "tulaneComestoYou.csv"
-with open(csv_filename, mode="w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerow(["State", "Title", "Date", "Time", "Location", "Link"])
-    writer.writerows(data)
+if __name__ == "__main__":
+    urls_to_scrape = [
+        "https://tulane.campuslabs.com/engage/events",
+        "https://events.tulane.edu/",
+        "https://apply.tulane.edu/portal/tulanecomestoyou",
+        "https://freeman.tulane.edu/events",
+        "https://medicine.tulane.edu/events-calendar",
+        "https://tmedweb.tulane.edu/clubs/",
+        "https://campusrecreation.tulane.edu/event-listings"
+    ]
 
-print(f"✅ Saved {len(data)} events to {csv_filename}")
+    scraper = GenericEventScraper(urls_to_scrape)
+    scraper.run()
+    scraper.save_results()
