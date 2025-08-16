@@ -1,76 +1,72 @@
-import time
-import pandas as pd
+import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
+import csv
+from datetime import datetime
 
 # URL to scrape
-url = "https://freeman.tulane.edu/events"
+url = 'https://greek.tulane.edu/event-listings'
 
-# Setup Selenium
-options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")
-driver = webdriver.Chrome(options=options)
-wait = WebDriverWait(driver, 10)
+response = requests.get(url)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
 
+# Find all event blocks directly
+event_rows = soup.find_all('div', class_='mb-10 views-row')
 events = []
-
-try:
-    print(f"🌐 Scraping {url}")
-    driver.get(url)
-
-    # Click "Load More" until all events are loaded
-    while True:
-        try:
-            load_more_btn = wait.until(
-                EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Load More')]"))
-            )
-            driver.execute_script("arguments[0].click();", load_more_btn)
-            time.sleep(2)
-        except (TimeoutException, NoSuchElementException, ElementClickInterceptedException):
-            break
-
-    # Parse page
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    event_cards = soup.find_all("div", class_="views-row")
-    for card in event_cards:
-        title_tag = card.find("a", href=True)
-        title = title_tag.get_text(strip=True) if title_tag else "No Title"
-        link = urljoin(url, title_tag["href"]) if title_tag else None
-
-        date_time = card.find("time", class_="block font-bold tuf-mb-3" )
-        date_time = date_time.get_text(strip=True) if date_time else None
-
-        if date_time:
-            parts = date_time.split(',', 1)
-            weekday = parts[0].strip()  # 'Friday'
-            rest = parts[1].strip() if len(parts) > 1 else ''
-            date_time_parts = rest.rsplit(' ', 3)
-            date = ' '.join(date_time_parts[:-2])  # 'April 17, 2026'
-            time = ' '.join(date_time_parts[-2:])  # '2:00 pm'
-            date_time = f"{date}, {time}"
+for event_row in event_rows:
+    # Event Name and Link
+    name_tag = event_row.find('div', class_='text-xl font-bold')
+    event_name = ''
+    event_link = ''
+    if name_tag:
+        a_tag = name_tag.find('a')
+        if a_tag:
+            event_name = a_tag.get_text(strip=True)
+            event_link = a_tag['href']
+            if not event_link.startswith('http'):
+                event_link = 'https://greek.tulane.edu' + event_link
         else:
-            time = "No Time"
-        desc_div = card.find("time", class_="block font-bold tuf-mb-3").find_next_sibling("div")
-        description = desc_div.get_text(strip=True) if desc_div else ""
+            event_name = name_tag.get_text(strip=True)
+    # Date, Weekday, Time
+    date_div = event_row.find('div', class_='views-field-value-2')
+    weekday = ''
+    date_str = ''
+    time_str = ''
+    if date_div:
+        date_span = date_div.find('span')
+        em_tag = date_div.find('em')
+        if em_tag:
+            date_time_text = em_tag.get_text(strip=True)
+            parts = date_time_text.split(',')
+            if len(parts) == 2:
+                weekday_date = parts[0].strip().split(' ', 1)
+                if len(weekday_date) == 2:
+                    weekday = weekday_date[0]
+                    date_str = weekday_date[1]
+                time_str = parts[1].strip()
+            else:
+                time_str = date_time_text
+    # Description
+    desc_div = event_row.find('div', class_='views-field-value-4')
+    description = ''
+    if desc_div:
+        desc_span = desc_div.find('span', class_='field-content')
+        if desc_span:
+            description = desc_span.get_text(strip=True)
+    events.append({
+        'Event Name': event_name,
+        'Weekday': weekday,
+        'Date': date_str,
+        'Time': time_str,
+        'Description': description,
+        'Link': event_link
+    })
 
-        event = {
-            "Title": title,
-            "Weekday": weekday if 'weekday' in locals() else "No Weekday",
-            "Date": date if 'dat'
-            'e' in locals() else "No Date",
-            "Time": time,
-            "Link": link,
-            "Description": description
-        }
-        events.append(event)
-        print(events)
-    print(f"Total events saved: {len(events)}")
+with open('tulane_greek_events.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    fieldnames = ['Event Name', 'Weekday', 'Date', 'Time', 'Description', 'Link']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for event in events:
+        writer.writerow(event)
 
-finally:
-    driver.quit()
-    print("✅ Browser closed.")
+print(f"Saved {len(events)} events to tulane_greek_events.csv.")
