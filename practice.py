@@ -1,49 +1,61 @@
-from icalendar import Calendar
+import requests
+from bs4 import BeautifulSoup
 import pandas as pd
+from dateutil import parser
 
-# Path to your downloaded .ics file
-ics_file = r"D:\Downloads\calendar.ics"
+url = "https://campusrecreation.tulane.edu/event-listings"  # replace if needed
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
 
 events = []
-with open(ics_file, 'rb') as f:
-    cal = Calendar.from_ical(f.read())
-    for e in cal.walk('VEVENT'):
-        title = str(e.get('SUMMARY', ''))
-        start = e.get('DTSTART').dt if e.get('DTSTART') else ''
-        end = e.get('DTEND').dt if e.get('DTEND') else ''
-        location = str(e.get('LOCATION', ''))
-        description_full = str(e.get('DESCRIPTION', ''))
-        # Extract only the main event description (line starting with 'Description:')
-        description = ''
-        for line in description_full.splitlines():
-            if line.strip().startswith('Description:'):
-                description = line.replace('Description:', '').strip()
-                break
-        # Extract date and time
-        def get_date(dt):
-            if hasattr(dt, 'date'):
-                return dt.date().isoformat()
-            elif isinstance(dt, str) and len(dt) >= 10:
-                return dt[:10]
-            return ''
-        def get_time(dt):
-            if hasattr(dt, 'strftime'):
-                return dt.strftime('%H:%M')
-            elif isinstance(dt, str) and len(dt) >= 16:
-                return dt[11:16]
-            return ''
-        date = get_date(start)
-        start_time = get_time(start)
-        end_time = get_time(end)
-        events.append({
-            "Title": title,
-            "Date": date,
-            "Start": start_time,
-            "End": end_time,
-            "Location": location,
-            "Description": description
-        })
 
-df = pd.DataFrame(events, columns=["Title", "Date", "Start", "End", "Location", "Description"])
-df.to_csv("tulane_events.csv", index=False)
-print("✅ Saved events to tulane_events.csv")
+for row in soup.select("div.mb-5.views-row"):
+    # Title & Link
+    title_tag = row.select_one("div.text-xl a")
+    title = title_tag.get_text(strip=True) if title_tag else ""
+    link = "https://campusrecreation.tulane.edu/event-listings" + title_tag["href"] if title_tag else ""
+
+    # Date
+    date_tag = row.find("em")
+    date_text = date_tag.get_text(strip=True) if date_tag else ""
+
+    try:
+        dt = parser.parse(date_text)
+        weekday = dt.strftime("%A")
+        day = dt.day
+        month = dt.strftime("%B")
+        year = dt.year
+    except:
+        weekday, day, month, year = "", "", "", ""
+
+    # Details section (time, location, description)
+    details_tag = row.select_one("div.views-field-value-2 span.field-content")
+    time, location, description = "", "", ""
+
+    if details_tag:
+        ps = details_tag.find_all("p")
+        for p in ps:
+            txt = p.get_text(strip=True)
+            if "am" in txt or "pm" in txt:   # crude time check
+                time = txt
+            elif "Center" in txt or "Room" in txt or "Hall" in txt:  # crude location check
+                location = txt
+            else:
+                description += txt + " "
+
+    events.append({
+        "Title": title,
+        "Weekday": weekday,
+        "Day": day,
+        "Month": month,
+        "Year": year,
+        "Time": time,
+        "Location": location,
+        "Description": description.strip(),
+        "Link": link
+    })
+
+# Save
+df = pd.DataFrame(events)
+df.to_csv("rec.csv", index=False)
+print("✅ Saved events to rec.csv")

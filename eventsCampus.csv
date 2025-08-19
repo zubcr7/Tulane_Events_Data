@@ -1,9 +1,4 @@
 Title,Weekday,Month,Day,Time,Location,Link
-Trash to Treasure Move-In Sale 2025,"Saturday,",August,16,at 10:00AM CDT,McWilliams Hall,https://tulane.campuslabs.com/engage/event/11365496
-Trash To Treasure Move-In Sale,"Sunday,",August,10,at 10:00AM CDT,"Elleonora P. McWilliams Lab Theatre, Room 104 BLDG #70",https://tulane.campuslabs.com/engage/event/11350017
-Tulane Takeover,"Saturday,",August,16,at 8:00PM CDT,Lavin-Bernick Center,https://tulane.campuslabs.com/engage/event/11353861
-LBC Movie Night in the Village Theater | Superbad (2007),"Saturday,",August,16,at 10:00PM CDT,The Village Theater (Room 150),https://tulane.campuslabs.com/engage/event/11361665
-Sunday Brunch and Worship,"Sunday,",August,17,at 10:00AM CDT,BCM House,https://tulane.campuslabs.com/engage/event/11384250
 SOM Birthday Celebration with the Deans,"Tuesday,",August,19,at 10:00AM CDT,Murphy Lobby,https://tulane.campuslabs.com/engage/event/11344389
 Lunch with the Deans,"Tuesday,",August,19,at 12:00PM CDT,Diboll Gallery (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356989
 A Taste of Latin America,"Tuesday,",August,19,at 10:30AM CDT,Pocket Park - McAlister Dr,https://tulane.campuslabs.com/engage/event/11383079
@@ -12,6 +7,7 @@ Pathway to Computational Biology,"Tuesday,",August,19,at 3:00PM CDT,Online,https
 """Merienda"" with the Stone Center","Tuesday,",August,19,at 4:30PM CDT,Cassatt Courtyard,https://tulane.campuslabs.com/engage/event/11427912
 OFSP Event Training,"Tuesday,",August,19,at 5:00PM CDT,Lake Theater,https://tulane.campuslabs.com/engage/event/11356938
 The Rat Grand Opening | Donuts,"Wednesday,",August,20,at 9:00AM CDT,LBC - The Rat,https://tulane.campuslabs.com/engage/event/11427971
+Ice Cold Caffeine - Fuel your semester,"Wednesday,",August,20,at 9:00AM CDT,McAlister Auditorium,https://tulane.campuslabs.com/engage/event/11442961
 Mindfulness Meet Ups for Faculty and Staff,"Wednesday,",August,20,at 12:00PM CDT,LBC 209,https://tulane.campuslabs.com/engage/event/11370369
 First SPHTM SGA General Body Meeting,"Wednesday,",August,20,at 12:00PM CDT,Tidewater Room 1201,https://tulane.campuslabs.com/engage/event/11371933
 Tulane Undergraduate Assembly Welcome Back & Elections,"Wednesday,",August,20,at 11:00AM CDT,ROTC Food Truck Location,https://tulane.campuslabs.com/engage/event/11411118
@@ -20,6 +16,7 @@ COB Open House,"Wednesday,",August,20,at 2:00PM CDT,Pedersen Lobby,https://tulan
 CPT Info Session for F-1 Students,"Wednesday,",August,20,at 4:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11387515
 Virtual Game Night + Registered Student Organization Fair,"Wednesday,",August,20,at 4:30PM CDT,Online,https://tulane.campuslabs.com/engage/event/11356796
 Join The Hullabaloo! Introductory meeting for interested students,"Wednesday,",August,20,at 6:00PM CDT,Rogers Memorial Chapel,https://tulane.campuslabs.com/engage/event/11384269
+2025 Welcome Back Meeting,"Wednesday,",August,20,at 7:00PM CDT,McAlister Auditorium,https://tulane.campuslabs.com/engage/event/11441903
 Global Scholars Welcome Week Tabling,"Thursday,",August,21,at 12:00PM CDT,1st Floor Lobby (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356809
 CPS Internships & International Experiences - Tabling Info Session,"Thursday,",August,21,at 10:00AM CDT,Stern Walkway (across from PJ's on Freret),https://tulane.campuslabs.com/engage/event/11403416
 Seminar Series in Sex-Based Precision Medicine,"Thursday,",August,21,at 1:00PM CDT,Hutchinson 4001,https://tulane.campuslabs.com/engage/event/11429472
@@ -30,26 +27,35 @@ Get to Know Chi Alpha,"Thursday,",August,21,at 7:30PM CDT,LBC - Financial Spot,h
 2025 WSPH Emergency Preparedness Presentation,"Friday,",August,22,at 12:00PM CDT,RM 1210 (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11357010
 Advising Drop-Ins with NTC College Advising,"Monday,",August,18,at 1:00PM CDT,"Mussafer Hall, The HUB Garage, and Virtual Advising",https://tulane.campuslabs.com/engage/event/11353135
 Welcome Back Cookout,"Friday,",August,22,at 7:00PM CDT,BCM House,https://tulane.campuslabs.com/engage/event/11391153
+Theatre Performance Major Auditions,"Friday,",August,22,at 5:30PM CDT,The Lab Theatre,https://tulane.campuslabs.com/engage/event/11438732
 WSPH SGA Back to School Bowling,"Friday,",August,22,at 7:00PM CDT,Fulton Alley,https://tulane.campuslabs.com/engage/event/11389321
 Karaoke in The Rat,"Friday,",August,22,at 8:00PM CDT,LBC - The Rat,https://tulane.campuslabs.com/engage/event/11371240
 LBC Movie Night in the Village Theater | Lilo & Stitch (2025),"Saturday,",August,23,at 8:00PM CDT,The Village Theater (Room 150),https://tulane.campuslabs.com/engage/event/11361844
 Navigating WSPH: Part 1,"Monday,",August,25,at 12:00PM CDT,Tidewater Room 1206,https://tulane.campuslabs.com/engage/event/11384139
 Academic Training Info Session for J-1 Students,"Monday,",August,25,at 12:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11387517
 PHDS Welcome Week Tabling,"Monday,",August,25,at 12:00PM CDT,1st Floor Lobby (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356824
+TUSTEP Semester Kickoff!,"Monday,",August,25,at 12:00PM CDT,Pocket Park,https://tulane.campuslabs.com/engage/event/11443056
+Tulane Undergraduate Mock Trial Information Session #2,"Monday,",August,25,at 6:00PM CDT,Lake Theatre,https://tulane.campuslabs.com/engage/event/11443010
 NPHC's Guide to Tulane,"Monday,",August,25,at 7:00PM CDT,LBC - 1834 Lounge,https://tulane.campuslabs.com/engage/event/11354797
 SSHARE Welcome Week Tabling,"Tuesday,",August,26,at 12:00PM CDT,1st Floor Lobby (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356821
 Global Cafe Fall 2025 Series,"Tuesday,",August,26,at 2:00PM CDT,"Rosenberg Mezzanine, LBC",https://tulane.campuslabs.com/engage/event/11390653
 Study Abroad in Argentina with IFSA,"Tuesday,",August,26,at 4:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11377570
+Dance Major Auditions,"Tuesday,",August,26,at 4:00PM CDT,McWilliams Hall 300 Dance Lab,https://tulane.campuslabs.com/engage/event/11438771
 Welcome Back Bayou BBQ,"Tuesday,",August,26,at 5:00PM CDT,Dining Room at Malkin Sacks Commons,https://tulane.campuslabs.com/engage/event/11427943
 ROLEPLAY Documentary Screening,"Tuesday,",August,26,at 6:00PM CDT,Lake Hall Theater,https://tulane.campuslabs.com/engage/event/11432005
 Venture Funding Basics (Part 1) Webinar,"Wednesday,",August,27,at 11:00AM CDT,Online,https://tulane.campuslabs.com/engage/event/11392261
 Mindfulness Meet Ups for Faculty and Staff,"Wednesday,",August,27,at 12:00PM CDT,LBC 209,https://tulane.campuslabs.com/engage/event/11370370
 HMSLA Welcome Week Tabling,"Wednesday,",August,27,at 12:00PM CDT,1st Floor Lobby (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356823
 APO Info Tabling,"Wednesday,",August,27,at 10:00AM CDT,LBC,https://tulane.campuslabs.com/engage/event/11410752
+General Membership Meeting,"Wednesday,",August,27,at 5:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11443028
+TU & You: Communication Etiquette and Technologies,"Wednesday,",August,27,at 5:00PM CDT,Multipurpose Room - Weinmann Hall,https://tulane.campuslabs.com/engage/event/11441375
 Turning the Tide: Weathering Katrina,"Wednesday,",August,27,at 5:30PM CDT,Tulane University Celia Scott Weatherhead School of Public Health and Tropical Medicine - Diboll Auditorium,https://tulane.campuslabs.com/engage/event/11371089
 SALUD Welcome Week Tabling,"Thursday,",August,28,at 12:00PM CDT,1st Floor Lobby (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356817
 Coffee & Conversation: Puzzle Me This,"Thursday,",August,28,at 12:00PM CDT,1440 Canal Street - First Floor Student Lounge,https://tulane.campuslabs.com/engage/event/11381533
 APO Info Tabling,"Thursday,",August,28,at 10:00AM CDT,LBC,https://tulane.campuslabs.com/engage/event/11410751
+Faculty and Staff Living with Disabilities Welcome Back and Book Swap,"Thursday,",August,28,at 3:00PM CDT,Murphy 220,https://tulane.campuslabs.com/engage/event/11438405
+Above the Oaks & Newcomb Dance Company Faculty Auditions,"Thursday,",August,28,at 4:00PM CDT,McWilliams Hall 300 Dance Lab,https://tulane.campuslabs.com/engage/event/11440371
+Hillel Fantasy Football League Draft,"Thursday,",August,28,at 6:00PM CDT,Tulane Hillel,https://tulane.campuslabs.com/engage/event/11441354
 Opening reception for On Display: a Twenty-First Century Salon des Refusés,"Thursday,",August,28,at 5:00PM CDT,"Stone Auditorium and Carroll Gallery - Newcomb Art Department, Tulane University",https://tulane.campuslabs.com/engage/event/11381380
 HPAM Fall 2025 Bocce Ball Welcome Back Event,"Thursday,",August,28,at 5:30PM CDT,Italian American Bocce Club of Greater New Orleans,https://tulane.campuslabs.com/engage/event/11361999
 SOCIETY Welcome Week Tabling,"Friday,",August,29,at 12:00PM CDT,1st Floor Lobby (Tidewater Bldg),https://tulane.campuslabs.com/engage/event/11356811
@@ -60,6 +66,7 @@ Study Abroad Weekly Info Session: 202 -- How to Study Abroad,"Tuesday,",Septembe
 APO Info Tabling,"Tuesday,",September,2,at 10:00AM CDT,LBC,https://tulane.campuslabs.com/engage/event/11410746
 Global Cafe Fall 2025 Series,"Tuesday,",September,2,at 2:00PM CDT,"Rosenberg Mezzanine, LBC",https://tulane.campuslabs.com/engage/event/11390654
 🥊 Knockout Negativity: A Boxing Demo for Mental Strength & Well-Being,"Tuesday,",September,2,at 5:30PM CDT,"Atrium, Reily Student Recreation Center",https://tulane.campuslabs.com/engage/event/11359595
+Cycling and Triathlon Recruitment Meeting,"Tuesday,",September,2,at 7:00PM CDT,LBC Room 201,https://tulane.campuslabs.com/engage/event/11443267
 "🥊 BoxFit45 Class Registration Deadline: Tuesday, September 2nd","Monday,",August,4,at 12:00AM CDT,Online,https://tulane.campuslabs.com/engage/event/11358653
 Mindfulness Meet Ups for Faculty and Staff,"Wednesday,",September,3,at 12:00PM CDT,LBC 209,https://tulane.campuslabs.com/engage/event/11370371
 APO Info Tabling,"Wednesday,",September,3,at 10:00AM CDT,LBC,https://tulane.campuslabs.com/engage/event/11410740
@@ -74,6 +81,8 @@ APO Info Tabling,"Thursday,",September,4,at 10:00AM CDT,LBC,https://tulane.campu
 Volleyball Promotional Day,"Thursday,",September,4,at 9:00AM CDT,Outside of McAlister Auditorium,https://tulane.campuslabs.com/engage/event/11356402
 Coffee & Conversation: Beignets and Board Games,"Thursday,",September,4,at 3:30PM CDT,Conference Room - 6901 Willow Street,https://tulane.campuslabs.com/engage/event/11381738
 The Green Bandana Project + QPR Workshop,"Thursday,",September,4,at 3:00PM CDT,LBC 208,https://tulane.campuslabs.com/engage/event/11350380
+"Lights, Camera, Interview! An Introduction to the Media Services Video Gear","Thursday,",September,4,at 3:00PM CDT,"Howard-Tilton Memorial Library, Room 602",https://tulane.campuslabs.com/engage/event/11441218
+"""On Display"" Discussion and Collage Experience","Thursday,",September,4,at 5:00PM CDT,"Carroll Gallery, Newcomb Art Department, Woldenberg Art Center",https://tulane.campuslabs.com/engage/event/11441316
 Join The Hullabaloo! Introductory meeting for interested students,"Thursday,",September,4,at 6:00PM CDT,Rogers Memorial Chapel,https://tulane.campuslabs.com/engage/event/11384270
 NPHC Meet the Greeks,"Thursday,",September,4,at 7:00PM CDT,LBC #203 - Stibbs,https://tulane.campuslabs.com/engage/event/11354792
 Front Porch Friday,"Friday,",September,5,at 10:30AM CDT,Warner Patio (near Cudd Hall),https://tulane.campuslabs.com/engage/event/11400192
@@ -82,31 +91,44 @@ Fridays at Newcomb: “Shamed”,"Friday,",September,5,at 12:00PM CDT,Diboll Gal
 APO Info Tabling,"Friday,",September,5,at 10:00AM CDT,LBC,https://tulane.campuslabs.com/engage/event/11410730
 Study Abroad Walk-in Advising,"Friday,",September,5,at 10:00AM CDT,LBC Mezzanine,https://tulane.campuslabs.com/engage/event/11388727
 Demystifying AI in Public Health Symposium,"Friday,",September,5,at 9:00AM CDT,Celia Scott Weatherhead School of Public Health and Tropical Medicine - Diboll Auditorium,https://tulane.campuslabs.com/engage/event/11104973
+The Squirrels Auditions,"Friday,",September,5,at 6:00PM CDT,The Lab Theatre,https://tulane.campuslabs.com/engage/event/11440412
 Phi Delta Epsilon Medical Fraternity Fall Recruitment Tabling,"Tuesday,",September,2,at 12:00AM CDT,McAlister,https://tulane.campuslabs.com/engage/event/11432414
 Just Dance Club,"Sunday,",September,7,at 7:00PM CDT,Kendall Cram,https://tulane.campuslabs.com/engage/event/11432511
 Homesickness: Fostering Connection & Community,"Monday,",September,8,at 12:00PM CDT,Tidewater 1206,https://tulane.campuslabs.com/engage/event/11380352
+Study Abroad Walk-in Advising,"Monday,",September,8,at 10:00AM CDT,LBC Mezzanine,https://tulane.campuslabs.com/engage/event/11441694
+"If: Life Writing, History, and Speculation","Monday,",September,8,at 5:00PM CDT,Hebert 201,https://tulane.campuslabs.com/engage/event/11441613
+Self-Care Is Not Selfish,"Tuesday,",September,9,at 11:30AM CDT,Commons 300 (Diboll Gallery),https://tulane.campuslabs.com/engage/event/11440672
+Photovoice and Public Health: Engaging Communities in Food and Climate Research By Dr. Manuel Franco,"Tuesday,",September,9,at 12:00PM CDT,Tulane University Tidewater Building,https://tulane.campuslabs.com/engage/event/11440299
 Study Abroad Walk-in Advising,"Tuesday,",September,9,at 10:30AM CDT,LBC Booth #5,https://tulane.campuslabs.com/engage/event/11400259
 Global Cafe Fall 2025 Series,"Tuesday,",September,9,at 2:00PM CDT,Rosenberg Mezzanine,https://tulane.campuslabs.com/engage/event/11390607
 Wave of Support Leadership Academy Info Session,"Tuesday,",September,9,at 3:30PM CDT,Cudd Hall 203,https://tulane.campuslabs.com/engage/event/11376570
+From Idea to Podcast: Get Started with Designing and Planning Your Podcast,"Tuesday,",September,9,at 4:00PM CDT,"Howard-Tilton Memorial Library, Room 602",https://tulane.campuslabs.com/engage/event/11441188
+JLPA Alumni & Friends Social,"Tuesday,",September,9,at 5:30PM CDT,Urban South Brewery,https://tulane.campuslabs.com/engage/event/11440305
 Meet The Brothers Night Two,"Tuesday,",September,9,at 5:00PM CDT,LBC Pocket Park,https://tulane.campuslabs.com/engage/event/11432565
 Recruitment,"Tuesday,",September,9,at 7:00PM CDT,Rogers Memorial Chapel,https://tulane.campuslabs.com/engage/event/11374566
 Venture Funding Basics (Part 2) Webinar,"Wednesday,",September,10,at 11:00AM CDT,Online,https://tulane.campuslabs.com/engage/event/11392278
 Academic Writing Series,"Wednesday,",September,10,at 12:00PM CDT,School of Public Health and Tropical Medicine,https://tulane.campuslabs.com/engage/event/11345689
 World Suicide Prevention Day Tabling,"Wednesday,",September,10,at 11:00AM CDT,McAlister Walkway,https://tulane.campuslabs.com/engage/event/11364744
+Mindful Samba,"Wednesday,",September,10,at 5:30PM CDT,Brown Field,https://tulane.campuslabs.com/engage/event/11440342
 Recruitment,"Wednesday,",September,10,at 7:00PM CDT,Rogers Memorial Chapel,https://tulane.campuslabs.com/engage/event/11374565
-Opening  Reception for Tulane Special Collections new Exhibition,"Thursday,",September,11,at 11:00AM CDT,Joseph Merrick Jones Hall,https://tulane.campuslabs.com/engage/event/11388761
 Introduction to Citation Management Tools,"Thursday,",September,11,at 12:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11427937
 Seminar Series in Sex-Based Precision Medicine,"Thursday,",September,11,at 1:00PM CDT,Hutchinson 6065,https://tulane.campuslabs.com/engage/event/11429473
+"""On Display"" Rejected Clothing and Objects Swap","Thursday,",September,11,at 3:00PM CDT,"Carroll Gallery, Newcomb Art Department, Woldenberg Art Center",https://tulane.campuslabs.com/engage/event/11441321
+Opening  Reception for Tulane Special Collections new Exhibition,"Thursday,",September,11,at 3:00PM CDT,Joseph Merrick Jones Hall,https://tulane.campuslabs.com/engage/event/11388761
 Virtual Deans Hour,"Thursday,",September,11,at 4:30PM CDT,Online,https://tulane.campuslabs.com/engage/event/11356825
 Recruitment,"Thursday,",September,11,at 7:00PM CDT,Rogers Memorial Chapel,https://tulane.campuslabs.com/engage/event/11374564
+Librarianship: A Rewarding Alt-Ac Career,"Friday,",September,12,at 11:30AM CDT,"Howard-Tilton Memorial Library, Room 602",https://tulane.campuslabs.com/engage/event/11441244
 Positively Blooming - TUgether for Mental Health,"Friday,",September,12,at 11:30AM CDT,McAlister Walkway,https://tulane.campuslabs.com/engage/event/11345844
+Express Yourself: Album Art for Your Story,"Monday,",September,15,at 12:00PM CDT,"CELT - ILC, 3rd floor Howard-Tilton",https://tulane.campuslabs.com/engage/event/11441248
 The Green Bandana Project Orientation,"Monday,",September,15,at 3:30PM CDT,LBC 208,https://tulane.campuslabs.com/engage/event/11350387
+In the Archives: Posters and New Orleans Hip Hop History,"Monday,",September,15,at 4:00PM CDT,"Howard-Tilton Memorial Library, Room 603",https://tulane.campuslabs.com/engage/event/11441837
 🧠💪 Mind & Motion: Mental Fitness Challenge + Fitness Screening,"Monday,",September,15,at 5:00PM CDT,"Atrium, Reily Student Recreation Center",https://tulane.campuslabs.com/engage/event/11359519
 CEA Open Sessions: Entering & Creating Communities,"Monday,",September,15,at 5:00PM CDT,Entering Communities: Part 1,https://tulane.campuslabs.com/engage/event/11372644
 CEA Open Sessions: Entering & Creating Communities,"Monday,",September,15,at 5:00PM CDT,Entering Communities: Part 1,https://tulane.campuslabs.com/engage/event/11372643
 SOM Birthday Celebration with the Deans,"Tuesday,",September,16,at 10:00AM CDT,Hutchinson Lobby,https://tulane.campuslabs.com/engage/event/11344431
 Using Zotero for Citation Management,"Tuesday,",September,16,at 12:30PM CDT,Online,https://tulane.campuslabs.com/engage/event/11427934
 Global Cafe Fall 2025 Series,"Tuesday,",September,16,at 2:00PM CDT,"Rosenberg Mezzanine, LBC",https://tulane.campuslabs.com/engage/event/11390655
+"Home Recording for Podcasting and Voiceover: mics, set-up, and recording","Tuesday,",September,16,at 4:00PM CDT,"Howard-Tilton Memorial Library, Room 602",https://tulane.campuslabs.com/engage/event/11441638
 CEA Open Sessions: Entering & Creating Communities,"Tuesday,",September,16,at 5:00PM CDT,Entering Communities: Working With Youth,https://tulane.campuslabs.com/engage/event/11372646
 CEA Open Sessions: Entering & Creating Communities,"Tuesday,",September,16,at 5:00PM CDT,Entering Communities: Working With Youth,https://tulane.campuslabs.com/engage/event/11372645
 Cupcakes & Connections,"Wednesday,",September,17,at 11:00AM CDT,McAlister Walkway,https://tulane.campuslabs.com/engage/event/11381558
@@ -116,6 +138,7 @@ OPT Overview Info Session for F-1 Students,"Wednesday,",September,17,at 4:00PM C
 General Membership Meeting,"Wednesday,",September,17,at 5:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11384216
 CEA Open Sessions: Entering & Creating Communities,"Wednesday,",September,17,at 5:00PM CDT,Entering Communities: Cultural Humility and Intercultural Competence,https://tulane.campuslabs.com/engage/event/11372647
 CEA Open Sessions: Entering & Creating Communities,"Wednesday,",September,17,at 5:00PM CDT,Entering Communities: Cultural Humility and Intercultural Competence,https://tulane.campuslabs.com/engage/event/11372648
+Closing event for Salon des Refusés,"Wednesday,",September,17,at 6:00PM CDT,"Stone Auditorium and Carroll Gallery - Newcomb Art Department, Tulane University",https://tulane.campuslabs.com/engage/event/11441825
 Coffee & Conversation: Community Connections,"Thursday,",September,18,at 3:30PM CDT,Conference Room - 6901 Willow Street,https://tulane.campuslabs.com/engage/event/11378871
 2025 Symposium on Climate & Health in the Gulf Region,"Thursday,",September,18,at 2:00PM CDT,Celia Scott Weatherhead School of Public Health and Tropical Medicine at Tulane University - Diboll Auditorium,https://tulane.campuslabs.com/engage/event/11122132
 CEA Open Sessions: Entering & Creating Communities,"Thursday,",September,18,at 5:00PM CDT,Entering Communities: Part 2,https://tulane.campuslabs.com/engage/event/11372649
@@ -127,15 +150,18 @@ CEA Open Sessions: Entering & Creating Communities,"Friday,",September,19,at 5:0
 CEA Open Sessions: Entering & Creating Communities,"Friday,",September,19,at 5:00PM CDT,Bringing It TUgether: Exploring Student Experiences,https://tulane.campuslabs.com/engage/event/11372651
 CEA Open Sessions: Entering & Creating Communities,"Saturday,",September,20,at 1:00PM CDT,Environmental Justice: Keeping New Orleans Green,https://tulane.campuslabs.com/engage/event/11372654
 CEA Open Sessions: Entering & Creating Communities,"Saturday,",September,20,at 1:00PM CDT,Accessibility and Disability: Navigating Campus and Community Spaces,https://tulane.campuslabs.com/engage/event/11372653
+Cowen Institute Presents: Reflecting on the last 20 Years of Public Education in New Orleans,"Monday,",September,22,at 10:00AM CDT,"Diboll Gallery 3rd Floor, Malkin Sacks Commons Newcomb Institute, Tulane University",https://tulane.campuslabs.com/engage/event/11441941
 Finding Your Calm in the Hullabaloo,"Monday,",September,22,at 12:00PM CDT,"Howard-Tilton Memorial Library, Room 430",https://tulane.campuslabs.com/engage/event/11396251
 Introduction to Data Management and Sharing Plans,"Monday,",September,22,at 12:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11427933
 OPT I-765 Walkthrough for F-1 Students,"Monday,",September,22,at 4:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11387522
 Introduction to Python,"Monday,",September,22,at 4:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11427932
 QPR Training for Faculty,"Tuesday,",September,23,at 12:30PM CDT,"HTML, Third Floor, CELT-ILC Suite",https://tulane.campuslabs.com/engage/event/11369630
 Global Cafe Fall 2025 Series,"Tuesday,",September,23,at 2:00PM CDT,"Rosenberg Mezzanine, LBC",https://tulane.campuslabs.com/engage/event/11390656
+Video Essays: Strategies for Success,"Tuesday,",September,23,at 3:00PM CDT,"Howard-Tilton Memorial Library, Room 602",https://tulane.campuslabs.com/engage/event/11441660
 "Seniors, Apply to Graduate!","Wednesday,",September,24,at 9:00AM CDT,LBC Pedersen Lobby,https://tulane.campuslabs.com/engage/event/11353682
-Academic Writing Series,"Wednesday,",September,24,at 12:00PM CDT,School of Public Health and Tropical Medicine,https://tulane.campuslabs.com/engage/event/11345690
 Mindfulness Meet Ups for Faculty and Staff,"Wednesday,",September,24,at 12:00PM CDT,LBC 204 (Right next to LBC elevator!),https://tulane.campuslabs.com/engage/event/11370373
+Academic Writing Series,"Wednesday,",September,24,at 12:00PM CDT,School of Public Health and Tropical Medicine,https://tulane.campuslabs.com/engage/event/11345690
+Getting Started with Fashion and Textile Research,"Wednesday,",September,24,at 1:00PM CDT,"Jones Hall, room 306 (Louis Prima Room)",https://tulane.campuslabs.com/engage/event/11441666
 "Annual J. Richard Williams, MD 1931 Lecture: Hygienic Modernity, Imperialism, & Sanitary Projects in 19th-c. Middle East: The Case of Damascus","Wednesday,",September,24,at 4:00PM CDT,300 Malin Sacks Commons Building (Diboll Gallery),https://tulane.campuslabs.com/engage/event/11391853
 Intermediate Concepts in Python,"Wednesday,",September,24,at 4:00PM CDT,Online,https://tulane.campuslabs.com/engage/event/11427931
 The Green Bandana Project + QPR Workshop,"Wednesday,",September,24,at 5:00PM CDT,LBC 208,https://tulane.campuslabs.com/engage/event/11352794
@@ -221,6 +247,8 @@ Mindfulness Meet Ups for Faculty and Staff,"Wednesday,",December,10,at 12:00PM C
 SOM Birthday Celebration with the Deans,"Tuesday,",December,16,at 10:00AM CST,Murphy Lobby,https://tulane.campuslabs.com/engage/event/11344509
 Seminar Series in Sex-Based Precision Medicine,"Thursday,",December,18,at 12:00PM CST,Hutchinson 6065,https://tulane.campuslabs.com/engage/event/11429476
 NPHC Meet the Greeks,"Wednesday,",January,21,at 7:00PM CST,LBC #203 - Stibbs,https://tulane.campuslabs.com/engage/event/11354793
+Spring 2026 Graduate RSO Advisor Training,"Thursday,",February,5,at 12:00PM CST,LBC #209,https://tulane.campuslabs.com/engage/event/11435099
 Seminar Series in Sex-Based Precision Medicine,"Thursday,",February,26,at 12:00PM CST,Hutchinson 6065,https://tulane.campuslabs.com/engage/event/11429477
 Seminar Series in Sex-Based Precision Medicine,"Thursday,",March,19,at 1:00PM CDT,Hutchinson 6065,https://tulane.campuslabs.com/engage/event/11429478
+Spring 2026 Undergraduate RSO Advisor Training,"Wednesday,",April,8,at 12:00PM CDT,LBC #210 - McKeever,https://tulane.campuslabs.com/engage/event/11435057
 Seminar Series in Sex-Based Precision Medicine,"Thursday,",April,16,at 12:00PM CDT,Hutchinson 6065,https://tulane.campuslabs.com/engage/event/11429479

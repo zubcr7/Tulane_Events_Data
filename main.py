@@ -4,6 +4,7 @@ from tulane_events.tulane_comesto_u import TulaneComesToYouScraper
 from tulane_events.fsb_events import FsbEventsScrapper
 from tulane_events.medical_school_scraper import MedicalSchoolEventScraper
 from tulane_events.greek_frat_events import GreekFratEventsScraper
+from tulane_events.rec_events import RecEventsScraper
 
 if __name__ == "__main__":
     # Run TulaneEventScraper
@@ -28,3 +29,7 @@ if __name__ == "__main__":
     # Run GreekFratEventsScraper
     greek_scraper = GreekFratEventsScraper()
     greek_scraper.scrape()
+
+    # Run RecEventsScraper
+    rec_scraper = RecEventsScraper()
+    rec_scraper.scrape()
